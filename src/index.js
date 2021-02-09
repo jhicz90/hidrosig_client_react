@@ -1,12 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+//Componentes
+import Web from './components/web/web';
+import App from './components/app/app';
 import reportWebVitals from './reportWebVitals';
+//Servicios
+//Estilos
+import './index.css';
+import 'rsuite/dist/styles/rsuite-default.css';
+// --------------------------------------- //
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Web />
+        </Route>
+        <Route exact path="/app">
+          <App />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
