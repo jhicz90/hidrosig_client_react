@@ -5,6 +5,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 //Componentes
 import Web from './components/web/web';
 import App from './components/app/app';
+import Login from './components/app/login';
+import PrivateRoute from './guards/login.guard';
 import reportWebVitals from './reportWebVitals';
 //Servicios
 //Estilos
@@ -19,9 +21,12 @@ ReactDOM.render(
         <Route exact path="/">
           <Web />
         </Route>
-        <Route exact path="/app">
-          <App />
+        <Route path="/login">
+          <Login />
         </Route>
+        <PrivateRoute exact path="/app">
+          <App />
+        </PrivateRoute>
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,
